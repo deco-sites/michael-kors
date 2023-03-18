@@ -410,6 +410,10 @@ const manifest: DecoManifest = {
                       "type": "string",
                       "const": "Location",
                     },
+                    {
+                      "type": "string",
+                      "const": "Arrow",
+                    },
                   ],
                   "title": "Icon",
                   "description": "Image src",
@@ -624,6 +628,10 @@ const manifest: DecoManifest = {
                               {
                                 "type": "string",
                                 "const": "Location",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Arrow",
                               },
                             ],
                             "title": "Icon",
@@ -857,13 +865,14 @@ const manifest: DecoManifest = {
             "title": "Highlights",
           },
           "title": {
-            "type": "string",
+            "type": [
+              "string",
+              "null",
+            ],
             "title": "Title",
           },
         },
-        "required": [
-          "title",
-        ],
+        "required": [],
       },
       "outputSchema": null,
     },

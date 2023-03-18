@@ -1,8 +1,7 @@
 import Image from "deco-sites/std/components/Image.tsx";
-import Container from "$store/components/ui/Container.tsx";
 import Text from "$store/components/ui/Text.tsx";
-import Slider from "$store/components/ui/Slider.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import Icon from "$store/components/ui/Icon.tsx";
 
 export interface Highlight {
   src: LiveImage;
@@ -13,37 +12,49 @@ export interface Highlight {
 
 export interface Props {
   highlights?: Highlight[];
-  title: string;
+  title?: string;
 }
 
 function Highlights({ highlights = [], title }: Props) {
   return (
-    <Container class="grid grid-cols-1 grid-rows-[48px_1fr] py-10">
-      <h2 class="text-center">
-        <Text variant="heading-2">{title}</Text>
-      </h2>
+    <>
+      <div class="p-4 flex justify-center  lg:p-10">
+        <h2 class="text-center">
+          <Text variant="heading-2">{title}</Text>
+        </h2>
 
-      <Slider
-        class="gap-6"
-        snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
-      >
-        {highlights.map(({ href, src, alt, label }) => (
-          <a
-            href={href}
-            class="flex flex-col gap-4 items-center min-w-[190px]"
-          >
-            <Image
-              class="rounded-[40px]"
-              src={src}
-              alt={alt}
-              width={190}
-              height={265}
-            />
-            <Text variant="body">{label}</Text>
-          </a>
-        ))}
-      </Slider>
-    </Container>
+        <div class="flex flex-col  lg:flex-row max-w-[1440px] lg:gap-8">
+          {highlights.map(({ href, src, alt, label }) => (
+            <a
+              href={href}
+              class="flex flex-col gap-4 items-center min-w-[190px] mb-20 "
+            >
+              <div class="w-full">
+                <Image
+                  src={src}
+                  alt={alt}
+                  width={333}
+                  height={415}
+                  style={{ width: "100%" }}
+                />
+              </div>
+
+              <div class="flex flex-row items-center gap-2.5">
+                <Text class="text-xs text-default-dark font-bold uppercase">
+                  {label}
+                </Text>
+                <Icon
+                  id="Arrow"
+                  width={16}
+                  height={16}
+                  strokeWidth={0.01}
+                />
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
 
