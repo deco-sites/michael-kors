@@ -73,7 +73,7 @@ function Navbar({ items, searchbar }: {
             </a>
           </div>
 
-          <div class="flex-auto flex justify-center gap-7">
+          <div class="flex-auto flex justify-center">
             {items.map((item) => <NavItem item={item} />)}
           </div>
         </div>

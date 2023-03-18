@@ -19,7 +19,7 @@ function Alert({ alerts = [], interval = 5 }: Props) {
   return (
     <div
       id={id}
-      class="bg-default-dark h-[50px] lg:h-[38px] relative flex  justify-center  lg:"
+      class="bg-default-dark h-[50px] lg:h-[38px] relative flex  justify-center"
     >
       <div class="absolute top-1 left-1/2 transform -translate-x-1/2  w-full  lg:top-1/2 lg:-translate-y-1/2">
         <Slider class="scrollbar-none">

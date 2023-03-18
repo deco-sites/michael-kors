@@ -16,7 +16,7 @@ function NavItem({ item }: { item: INavItem }) {
     <li class="group flex items-center">
       <a href={href} class="px-4 py-3">
         <Text
-          class={`group-hover:border-black border-solid border-b border-white text-xs ${
+          class={`px-3.5 group-hover:border-black border-solid border-b border-white text-xs ${
             label === "SALE"
               ? "text-red-600  font-black"
               : "text-default-dark font-medium"
