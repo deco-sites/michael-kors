@@ -24,7 +24,7 @@ const isIcon = (item: Item): item is IconItem =>
 
 function SectionItem({ item }: { item: Item }) {
   return (
-    <Text variant="caption" tone="default-inverse">
+    <Text variant="caption" class = "text-default-dark">
       {isIcon(item)
         ? (
           <div class="border-default border-1 py-1.5 px-2.5">
@@ -73,7 +73,7 @@ function Footer({ sections = [] }: Props) {
               {sections.map((section) => (
                 <li>
                   <div>
-                    <Text variant="heading-3" tone="default-inverse">
+                    <Text variant="heading-3" class = "text-default-dark text-xs">
                       {section.label}
                     </Text>
 
@@ -97,7 +97,7 @@ function Footer({ sections = [] }: Props) {
             <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
               {sections.map((section) => (
                 <li>
-                  <Text variant="body" tone="default-inverse">
+                  <Text variant="body">
                     <details>
                       <summary>
                         {section.label}
@@ -127,9 +127,8 @@ function Footer({ sections = [] }: Props) {
         <Container class="w-full">
           <FooterContainer class="flex justify-between w-full">
             <Text
-              class="flex items-center gap-1"
+              class="flex items-center gap-1 text-default-dark"
               variant="body"
-              tone="default-inverse"
             >
               Powered by{" "}
               <a
