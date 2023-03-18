@@ -7,6 +7,7 @@ import { navbarHeight } from "./constants.ts";
 import type { INavItem } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import Text from "$store/components/ui/Text.tsx";
+import SearchBar from "./SearchBar.tsx";
 
 function Navbar({ items, searchbar }: {
   items: INavItem[];
@@ -22,7 +23,7 @@ function Navbar({ items, searchbar }: {
 
         <Icon
           id="Logo"
-          width={140}
+          width={155}
           height={15}
           class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
         />
@@ -58,6 +59,7 @@ function Navbar({ items, searchbar }: {
               <div class="flex">
                 <HeaderButton variant="cart" />
               </div>
+              <SearchBar />
             </div>
           </div>
 
@@ -71,7 +73,7 @@ function Navbar({ items, searchbar }: {
             </a>
           </div>
 
-          <div class="flex-auto flex justify-center">
+          <div class="flex-auto flex justify-center gap-7">
             {items.map((item) => <NavItem item={item} />)}
           </div>
         </div>

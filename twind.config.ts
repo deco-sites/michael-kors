@@ -44,6 +44,7 @@ const options: Omit<Options, "selfURL"> = {
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
         // cores que usamos
         "default-dark": "#000000",
+        "light-grey": "#D1D1D1",
       },
       textColor: {
         "default": "#161616",
