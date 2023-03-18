@@ -38,7 +38,7 @@ function Alert({ alerts = [], interval = 5 }: Props) {
         />
       </div>
 
-      <div class="w-4/6 flex justify-center lg:justify-end">
+      <div class="w-4/5 flex justify-center lg:justify-end  xl:w-4/6">
         <div class="flex flex-row items-center justify-center gap-2 pt-5 lg:pt-0">
           <Icon id="WhatsAppLogo" width={20} height={20} />
           <a href="https://api.whatsapp.com/send?app_absent=0&phone=5511991881438&text=">

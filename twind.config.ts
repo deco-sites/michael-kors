@@ -54,6 +54,7 @@ const options: Omit<Options, "selfURL"> = {
         "section-title": "#161616",
         "positive": "#1A7346",
         "critical": "#B44125",
+        "default-dark": "#000000",
       },
       borderColor: {
         "default": "#D4DBD7",
