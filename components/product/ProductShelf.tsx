@@ -28,33 +28,40 @@ function ProductShelf({
   return (
     <Container
       id={id}
-      class="grid grid-cols-[48px_1fr_48px] grid-rows-[48px_1fr_48px_1fr] py-10 px-0 sm:px-5"
+      class="flex flex-col justify-center w-full mt-24 relative overflow-x-hidden"
     >
-      <h2 class="text-center row-start-1 col-span-full">
-        <Text variant="heading-2">{title}</Text>
+      <h2 class="text-center  flex flex-row items-center  md:gap-2 p-2">
+        <div class="w-full h-[1px] bg-[#AAACAE]" />
+        <Text
+          variant="heading-2"
+          class="tracking-[6px] min-w-[275px] sm:min-w-[400px] lg:min-w-[600px] "
+        >
+          {title}
+        </Text>
+        <div class="w-full h-[1px] bg-[#AAACAE]" />
       </h2>
 
       <Slider
-        class="gap-6 col-span-full row-start-2 row-end-5"
+        class="gap-6  w-full"
         snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
       >
         {products?.map((product) => (
-          <div class="min-w-[270px] max-w-[270px] sm:min-w-[292px] sm:max-w-[292px]">
+          <div class="min-w-[172px] max-w-[172px] sm:min-w-[220px] sm:max-w-[220px] lg:min-w-[360px] sm:max-w-[360px]">
             <ProductCard product={product} />
           </div>
         ))}
       </Slider>
 
       <>
-        <div class="hidden relative sm:block z-10 col-start-1 row-start-3">
-          <div class="absolute right-1/2 bg-interactive-inverse rounded-full border-default border">
+        <div class="hidden absolute sm:block z-10 ">
+          <div class="absolute left-0 top-1/2 bg-interactive-inverse rounded-full border-default border">
             <Button variant="icon" data-slide="prev" aria-label="Previous item">
               <Icon size={20} id="ChevronLeft" strokeWidth={3} />
             </Button>
           </div>
         </div>
-        <div class="hidden relative sm:block z-10 col-start-3 row-start-3">
-          <div class="absolute left-1/2 bg-interactive-inverse rounded-full border-default border">
+        <div class="hidden absolute sm:block z-10 col-start-3 row-start-3 right-0">
+          <div class="absolute right-0 top-1/2 bg-interactive-inverse rounded-full border-default border">
             <Button variant="icon" data-slide="next" aria-label="Next item">
               <Icon size={20} id="ChevronRight" strokeWidth={3} />
             </Button>

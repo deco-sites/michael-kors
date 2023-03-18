@@ -36,7 +36,7 @@ function Navbar({ items, searchbar }: {
 
       {/* Desktop Version */}
       <div class="hidden md:flex 	w-full justify-center items-center flex-col m-0">
-        <div class="flex  flex-col justify-between border-b-1 border-default w-full pl-3 pr-3 h-[140px] max-w-6xl">
+        <div class="flex  flex-col justify-between border-b-1 border-default w-full pl-3 pr-3 h-[140px] max-w-[1440px] ">
           <div class="flex flex-row items-center justify-between ">
             <div class="flex flex-row justify-center items-center gap-3">
               <div class="flex flex-row justify-center items-center gap-1">

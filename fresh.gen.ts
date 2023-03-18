@@ -267,6 +267,25 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Href",
           },
+          "image": {
+            "format": "image-uri",
+            "type": "string",
+            "title": "Image",
+          },
+          "alt": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Alt",
+          },
+          "horizontal": {
+            "type": [
+              "boolean",
+              "null",
+            ],
+            "title": "Horizontal",
+          },
         },
         "required": [
           "title",

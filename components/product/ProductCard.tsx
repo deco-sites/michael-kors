@@ -63,7 +63,7 @@ function ProductCard({ product, preload }: Props) {
             alt={front.alternateName}
             width={200}
             height={279}
-            class="rounded w-full group-hover:hidden"
+            class=" w-full group-hover:hidden"
             preload={preload}
             loading={preload ? "eager" : "lazy"}
             sizes="(max-width: 640px) 50vw, 20vw"
@@ -73,39 +73,32 @@ function ProductCard({ product, preload }: Props) {
             alt={back?.alternateName ?? front.alternateName}
             width={200}
             height={279}
-            class="rounded w-full hidden group-hover:block"
+            class=" w-full hidden group-hover:block"
             sizes="(max-width: 640px) 50vw, 20vw"
           />
           {seller && (
-            <div
-              class="absolute bottom-0 hidden sm:group-hover:flex flex-col gap-2 w-full p-2 bg-opacity-10"
-              style={{
-                backgroundColor: "rgba(255, 255, 255, 0.2)",
-                backdropFilter: "blur(2px)",
-              }}
-            >
-              <Sizes {...product} />
-              <Button as="a" href={product.url}>Visualizar Produto</Button>
+            <div class="absolute bottom-0 hidden sm:group-hover:flex flex-col gap-2 w-full p-2 bg-opacity-10">
+              <Button as="a" href={product.url}>COMPRAR AGORA</Button>
             </div>
           )}
         </div>
 
-        <div class="flex flex-col gap-1 py-2">
-          <Text
-            class="overflow-hidden overflow-ellipsis whitespace-nowrap"
-            variant="caption"
-          >
-            {name}
+        <div class="flex flex-col gap-1 py-2 mt-4">
+          <Text class="text-xs">
+            MICHAEL KORS
           </Text>
-          <div class="flex items-center gap-2">
+          <Text class="text-xs">
+            Bolsa De Viagem
+          </Text>
+          <div class="flex flex-col">
             <Text
-              class="line-through"
+              class="line-through text-xs"
               variant="list-price"
               tone="subdued"
             >
               {formatPrice(listPrice, offers!.priceCurrency!)}
             </Text>
-            <Text variant="caption" tone="price">
+            <Text variant="caption" tone="price" class="text-xs">
               {formatPrice(price, offers!.priceCurrency!)}
             </Text>
           </div>
