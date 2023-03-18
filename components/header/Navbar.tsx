@@ -6,7 +6,8 @@ import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import type { INavItem } from "./NavItem.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
-import HeaderSearchMenu from "$store/islands/HeaderSearchMenu.tsx";
+import Text from "$store/components/ui/Text.tsx";
+import SearchBar from "./SearchBar.tsx";
 
 function Navbar({ items, searchbar }: {
   items: INavItem[];
@@ -16,46 +17,65 @@ function Navbar({ items, searchbar }: {
     <>
       {/* Mobile Version */}
       <div
-        class={`md:hidden flex flex-row justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full px-2 gap-2`}
+        class={`md:hidden flex flex-row justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full px-2 gap-2 relative`}
       >
         <HeaderButton variant="menu" />
 
-        <a
-          href="/"
-          class={`flex-grow inline-flex items-center min-h-[${navbarHeight}]`}
-          aria-label="Store logo"
-        >
-          <Icon id="Logo" width={126} height={16} />
-        </a>
+        <Icon
+          id="Logo"
+          width={155}
+          height={15}
+          class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
+        />
 
-        <div class="flex gap-1">
+        <div class="flex">
           <HeaderButton variant="search" />
           <HeaderButton variant="cart" />
         </div>
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden md:flex flex-row justify-between items-center border-b-1 border-default w-full pl-2 pr-3">
-        <div class="flex-none w-44">
-          <a href="/" aria-label="Store logo" class="block px-4 py-3 w-[160px]">
-            <Icon id="Logo" width={126} height={16} />
-          </a>
-        </div>
-        <div class="flex-auto flex justify-center">
-          {items.map((item) => <NavItem item={item} />)}
-        </div>
-        <div class="flex-none w-44 flex items-center justify-end gap-2">
-          <HeaderButton variant="search" />
-          <HeaderSearchMenu searchbar={searchbar} />
-          <Button
-            as="a"
-            variant="icon"
-            href="/login"
-            aria-label="Log in"
-          >
-            <Icon id="User" width={20} height={20} strokeWidth={0.4} />
-          </Button>
-          <HeaderButton variant="cart" />
+      <div class="hidden md:flex 	w-full justify-center items-center flex-col m-0">
+        <div class="flex  flex-col justify-between border-b-1 border-default w-full pl-3 pr-3 h-[140px] max-w-6xl">
+          <div class="flex flex-row items-center justify-between ">
+            <div class="flex flex-row justify-center items-center gap-3">
+              <div class="flex flex-row justify-center items-center gap-1">
+                <Icon id="BrazilFlag" width={22} height={15} />
+                <Text class="text-xs">
+                  PT/BR
+                </Text>
+              </div>
+              <div class="flex flex-row justify-center items-center gap-1">
+                <Icon id="Location" width={16} height={16} />
+                <Text class="text-xs">
+                  Encontre uma loja
+                </Text>
+              </div>
+            </div>
+            <div class="flex flex-row justify-center items-center gap-3">
+              <Text class="text-xs">
+                Login
+              </Text>
+              <div class="flex">
+                <HeaderButton variant="cart" />
+              </div>
+              <SearchBar />
+            </div>
+          </div>
+
+          <div class="flex items-center justify-center">
+            <a
+              href="/"
+              aria-label="Store logo"
+              class="block px-4 py-3 w-[266px]"
+            >
+              <Icon id="Logo" width={266} height={26} />
+            </a>
+          </div>
+
+          <div class="flex-auto flex justify-center">
+            {items.map((item) => <NavItem item={item} />)}
+          </div>
         </div>
       </div>
     </>

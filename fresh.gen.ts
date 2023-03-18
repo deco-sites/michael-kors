@@ -217,65 +217,18 @@ const manifest: DecoManifest = {
         "title": " Carousel",
         "type": "object",
         "properties": {
-          "images": {
-            "type": "array",
-            "items": {
-              "title": "Banner",
-              "type": "object",
-              "properties": {
-                "desktop": {
-                  "format": "image-uri",
-                  "type": "string",
-                  "title": "Desktop",
-                  "description": "desktop otimized image",
-                },
-                "mobile": {
-                  "format": "image-uri",
-                  "type": "string",
-                  "title": "Mobile",
-                  "description": "mobile otimized image",
-                },
-                "alt": {
-                  "type": "string",
-                  "title": "Alt",
-                  "description": "Image's alt text",
-                },
-                "action": {
-                  "title": "Action",
-                  "type": "object",
-                  "properties": {
-                    "href": {
-                      "type": "string",
-                      "title": "Href",
-                    },
-                    "title": {
-                      "type": "string",
-                      "title": "Title",
-                    },
-                    "subTitle": {
-                      "type": "string",
-                      "title": "Sub Title",
-                    },
-                    "label": {
-                      "type": "string",
-                      "title": "Label",
-                    },
-                  },
-                  "required": [
-                    "href",
-                    "title",
-                    "subTitle",
-                    "label",
-                  ],
-                },
-              },
-              "required": [
-                "desktop",
-                "mobile",
-                "alt",
-              ],
-            },
-            "title": "Images",
+          "image": {
+            "format": "image-uri",
+            "type": "string",
+            "title": "Image",
+          },
+          "href": {
+            "type": "string",
+            "title": "Href",
+          },
+          "alt": {
+            "type": "string",
+            "title": "Alt",
           },
           "preload": {
             "type": [
@@ -286,16 +239,12 @@ const manifest: DecoManifest = {
             "description":
               "Check this option when this banner is the biggest image on the screen for image optimizations",
           },
-          "interval": {
-            "type": [
-              "number",
-              "null",
-            ],
-            "title": "Autoplay interval",
-            "description": "time (in seconds) to start the carousel autoplay",
-          },
         },
-        "required": [],
+        "required": [
+          "image",
+          "href",
+          "alt",
+        ],
       },
       "outputSchema": null,
     },
@@ -448,6 +397,18 @@ const manifest: DecoManifest = {
                     {
                       "type": "string",
                       "const": "WhatsApp",
+                    },
+                    {
+                      "type": "string",
+                      "const": "WhatsAppLogo",
+                    },
+                    {
+                      "type": "string",
+                      "const": "BrazilFlag",
+                    },
+                    {
+                      "type": "string",
+                      "const": "Location",
                     },
                   ],
                   "title": "Icon",
@@ -651,6 +612,18 @@ const manifest: DecoManifest = {
                               {
                                 "type": "string",
                                 "const": "WhatsApp",
+                              },
+                              {
+                                "type": "string",
+                                "const": "WhatsAppLogo",
+                              },
+                              {
+                                "type": "string",
+                                "const": "BrazilFlag",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Location",
                               },
                             ],
                             "title": "Icon",

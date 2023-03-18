@@ -42,6 +42,9 @@ const options: Omit<Options, "selfURL"> = {
         "interactive-inverse": "#FFFFFF",
         "hover": "rgba(0, 0, 0, 0.04)",
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
+        // cores que usamos
+        "default-dark": "#000000",
+        "light-grey": "#D1D1D1",
       },
       textColor: {
         "default": "#161616",
@@ -52,6 +55,7 @@ const options: Omit<Options, "selfURL"> = {
         "section-title": "#161616",
         "positive": "#1A7346",
         "critical": "#B44125",
+        "default-dark": "#000000",
       },
       borderColor: {
         "default": "#D4DBD7",
@@ -71,8 +75,9 @@ const options: Omit<Options, "selfURL"> = {
         "menu": ["16px", "20px"],
         "button": ["14px", "18px"],
         "body": ["16px", "20px"],
-        "caption": ["13px", "16px"],
+        "caption": ["8px", "11px"], //modificamos
         "list-price": ["10px", "20px"],
+        "small-link": ["10px", "12px"],
       },
       fontWeight: {
         "heading-1": "500",
@@ -81,7 +86,7 @@ const options: Omit<Options, "selfURL"> = {
         "menu": "400",
         "button": "700",
         "body": "400",
-        "caption": "400",
+        "caption": "300",
         "list-price": "400",
       },
       animation: {
