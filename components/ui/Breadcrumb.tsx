@@ -14,7 +14,7 @@ function Item({ name, item }: { name?: string; item?: string }) {
   return (
     <li class="whitespace-nowrap overflow-hidden overflow-ellipsis">
       <a href={item} class="hover:underline">
-        <Text variant="caption">
+        <Text class="text-xs">
           {name}
         </Text>
       </a>
@@ -29,7 +29,9 @@ function Breadcrumb({ itemListElement = [] }: Props) {
       {itemListElement.map((item) => (
         <>
           <li class="mt-0.5">
-            <Icon id="ChevronRight" width={16} height={16} strokeWidth={2} />
+            <Text class="text-xs">
+              /
+            </Text>
           </li>
           <Item {...item} />
         </>

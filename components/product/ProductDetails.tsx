@@ -44,12 +44,16 @@ function Details({ page }: { page: ProductDetailsPage }) {
   } = product;
   const { price, listPrice, seller, installments } = useOffer(offers);
   const [front, back] = images ?? [];
-
   return (
     <Container class="py-0 sm:py-10">
-      <div class="flex flex-col gap-4 sm:flex-row sm:gap-10">
+      <div class="flex flex-col gap-4 sm:flex-row sm:gap-40 lg:justify-center relative">
+        <div class="hidden lg:flex absolute top-0 left-0">
+          <Breadcrumb
+            itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
+          />
+        </div>
         {/* Image Gallery */}
-        <div class="flex flex-row overflow-auto snap-x snap-mandatory scroll-smooth sm:gap-2">
+        <div class="flex flex-row lg:flex-col overflow-auto snap-x snap-mandatory scroll-smooth sm:gap-2 ">
           {[front, back ?? front].map((img, index) => (
             <Image
               style={{ aspectRatio: "360 / 500" }}
@@ -66,21 +70,19 @@ function Details({ page }: { page: ProductDetailsPage }) {
           ))}
         </div>
         {/* Product Info */}
-        <div class="flex-auto px-4 sm:px-0">
-          {/* Breadcrumb */}
-          <Breadcrumb
-            itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
-          />
-          {/* Code and name */}
+        <div class="flex-auto px-4 sm:px-0 lg:max-w-[366px]">
           <div class="mt-4 sm:mt-8">
-            <div>
-              <Text tone="subdued" variant="caption">
-                Cod. {gtin}
-              </Text>
-            </div>
+            <Text class="text-sm">
+              Michael Kors
+            </Text>
             <h1>
               <Text variant="heading-3">{name}</Text>
             </h1>
+            <div>
+              <Text tone="subdued" class="text-xs">
+                Código: {gtin}
+              </Text>
+            </div>
           </div>
           {/* Prices */}
           <div class="mt-4">
@@ -101,31 +103,44 @@ function Details({ page }: { page: ProductDetailsPage }) {
             </Text>
           </div>
           {/* Sku Selector */}
-          <div class="mt-4 sm:mt-6">
-            <ProductSelector product={product} />
+          <div class="mt-4 sm:mt-6 ">
+            <Text class="text-base">
+              COR
+            </Text>
+            <div class="h-[75px]  w-[75px] border border-default-dark flex justify-center items-center flex-col gap-2.5">
+              <div class="h-[30px]  flex w-[30px] rounded-full bg-black" />
+              <Text class="text-xs">
+                {formatPrice(listPrice, offers!.priceCurrency!)}
+              </Text>
+            </div>
           </div>
-          {/* Add to Cart and Favorites button */}
-          <div class="mt-4 sm:mt-10 flex flex-col gap-2">
+          <div class="flex flex-col gap-2.5 mt-10">
+            <Text class="text-base">
+              QUANTIDADE
+            </Text>
+            <select class="w-[80px] h-[40px] border border-default-dark">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+          </div>
+
+          <div class="fixed lg:relative bottom-0 flex items-center justify-center w-full p-4 left-1/2 transform -translate-x-1/2 z-10 bg-white lg:p-0 lg:mt-5">
             {seller && (
               <AddToCartButton
                 skuId={productID}
                 sellerId={seller}
               />
             )}
-            <Button variant="secondary">
-              <Icon id="Heart" width={20} height={20} strokeWidth={2} />{" "}
-              Favoritar
-            </Button>
           </div>
-          {/* Description card */}
-          <div class="mt-4 sm:mt-6">
-            <Text variant="caption">
-              {description && (
-                <details>
-                  <summary class="cursor-pointer">Descrição</summary>
-                  <div class="ml-2 mt-2">{description}</div>
-                </details>
-              )}
+
+          <div class="flex flex-col gap-2.5 mt-6 mb-12">
+            <Text class="text-base">
+              DESIGN
+            </Text>
+            <Text class="text-base">
+              {description}
             </Text>
           </div>
         </div>

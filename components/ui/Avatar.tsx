@@ -22,16 +22,20 @@ interface Idempotent {
 }
 
 const colors = {
-  "azul-clara": "#87CEFA",
-  "azul-marinho": "#000080",
-  "branca": "#FFFFFF",
-  "cinza": "#808080",
-  "cinza-escura": "#A9A9A9",
-  "laranja": "#FFA500",
-  "marrom": "#A52A2A",
-  "preta": "#161616",
-  "verde-clara": "#90EE90",
-  "vermelha": "#FF0000",
+  "Amarelo": "#FFFF00",
+  "Azul": "#0000FF",
+  "Branco": "#FFFFFF",
+  "Caramelo": "#FFA07A",
+  "Cinza": "#808080",
+  "Laranja": "#FFA500",
+  "Marrom": "#A52A2A",
+  "Nude": "#F5DEB3",
+  "Prata": "#C0C0C0",
+  "Preto": "#000000",
+  "Rosa": "#FFC0CB",
+  "Roxo": "#800080",
+  "Verde": "#008000",
+  "Vermelho": "#FF0000",
 };
 
 type Props =

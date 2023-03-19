@@ -14,7 +14,7 @@ function Slider({
   return (
     <ul
       data-slider
-      class={`grid grid-flow-col items-center overflow-x-hidden overscroll-x-contain snap-x snap-mandatory ${_class}`}
+      class={`grid grid-flow-col items-center lg:overflow-x-hidden overflow-x-auto overscroll-x-contain snap-x snap-mandatory ${_class}`}
       {...props}
     >
       {Children.map(children, (child, index) => (

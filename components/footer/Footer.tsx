@@ -24,7 +24,7 @@ const isIcon = (item: Item): item is IconItem =>
 
 function SectionItem({ item }: { item: Item }) {
   return (
-    <Text variant="caption" class = "text-default-dark">
+    <Text variant="caption" class="text-default-dark">
       {isIcon(item)
         ? (
           <div class="border-default border-1 py-1.5 px-2.5">
@@ -37,7 +37,7 @@ function SectionItem({ item }: { item: Item }) {
           </div>
         )
         : (
-          <a href={item.href}>
+          <a href={item.href} class="text-xs">
             {item.label}
           </a>
         )}
@@ -51,7 +51,7 @@ function FooterContainer(
     children: ComponentChildren;
   },
 ) {
-  return <div class={`py-6 px-4 sm:py-12 sm:px-0 ${_class}`}>{children}</div>;
+  return <div class={`py-6  sm:py-12  ${_class}`}>{children}</div>;
 }
 
 export interface Props {
@@ -60,20 +60,20 @@ export interface Props {
 
 function Footer({ sections = [] }: Props) {
   return (
-    <footer class="w-full bg-footer flex flex-col divide-y-1 divide-default">
-      <div>
-        <Container class="w-full flex flex-col divide-y-1 divide-default">
+    <footer class="w-full bg-footer flex flex-col divide-y-1 divide-default ">
+      <div class="pl-4 pr-4 ">
+        <Container class="w-full flex flex-col lg:flex-row divide-y-1 divide-default  lg:justify-between">
           <FooterContainer>
             <Newsletter />
           </FooterContainer>
 
           <FooterContainer>
             {/* Desktop view */}
-            <ul class="hidden sm:flex flex-row gap-20">
+            <ul class="hidden sm:flex flex-row gap-28">
               {sections.map((section) => (
                 <li>
                   <div>
-                    <Text variant="heading-3" class = "text-default-dark text-xs">
+                    <Text class="text-default-dark text-sm font-medium">
                       {section.label}
                     </Text>
 
@@ -96,17 +96,23 @@ function Footer({ sections = [] }: Props) {
             {/* Mobile view */}
             <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
               {sections.map((section) => (
-                <li>
-                  <Text variant="body">
+                <li class="border-b-1 pb-4">
+                  <Text class="text-xs text-default-dark font-medium">
                     <details>
-                      <summary>
-                        {section.label}
+                      <summary className="flex items-center justify-between cursor-pointer">
+                        <span className="mr-2">{section.label}</span>
+                        <Icon
+                          id="Plus"
+                          height={20}
+                          width={20}
+                          strokeWidth={1}
+                        />
                       </summary>
 
                       <ul
                         class={`flex ${
                           isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                        } gap-2 px-2 pt-2`}
+                        } gap-8 pt-2`}
                       >
                         {section.children.map((item) => (
                           <li>
@@ -135,7 +141,13 @@ function Footer({ sections = [] }: Props) {
                 href="https://www.deco.cx"
                 aria-label="powered by https://www.deco.cx"
               >
-                <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
+                <Icon
+                  id="Deco"
+                  height={20}
+                  width={60}
+                  strokeWidth={0.01}
+                  class="text-default-dark"
+                />
               </a>
             </Text>
 
@@ -148,7 +160,7 @@ function Footer({ sections = [] }: Props) {
                   aria-label="Instagram logo"
                 >
                   <Icon
-                    class="text-default-inverse"
+                    class="text-default-dark"
                     width={32}
                     height={32}
                     id="Instagram"
@@ -164,7 +176,7 @@ function Footer({ sections = [] }: Props) {
                   aria-label="Discord logo"
                 >
                   <Icon
-                    class="text-default-inverse"
+                    class="text-default-dark"
                     width={32}
                     height={32}
                     id="Discord"

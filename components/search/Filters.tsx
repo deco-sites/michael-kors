@@ -14,34 +14,23 @@ const isToggle = (filter: Filter): filter is FilterToggle =>
   filter["@type"] === "FilterToggle";
 
 function FilterValues({ key, values }: FilterToggle) {
-  const flexDirection = key === "tamanho" || key === "cor"
-    ? "flex-row"
-    : "flex-col";
-
   return (
-    <ul class={`flex flex-wrap gap-2 ${flexDirection}`}>
+    <ul class="flex flex-wrap gap-2 flex-col lg:grid lg:grid-cols-4 lg:gap-6">
       {values.map(({ label, value, url, selected, quantity }) => {
-        if (key === "cor") {
+        if (key === "Cor") {
           return (
             <a href={url}>
-              <Avatar
-                // deno-lint-ignore no-explicit-any
-                content={value as any}
-                disabled={selected}
-                variant="color"
-              />
-            </a>
-          );
-        }
-
-        if (key === "tamanho") {
-          return (
-            <a href={url}>
-              <Avatar
-                content={label}
-                disabled={selected}
-                variant="abbreviation"
-              />
+              <div class="flex flex-row items-center gap-4">
+                <Avatar
+                  // deno-lint-ignore no-explicit-any
+                  content={value as any}
+                  disabled={selected}
+                  variant="color"
+                />
+                <Text class="text-xs lg:hidden">
+                  {label}
+                </Text>
+              </div>
             </a>
           );
         }
@@ -65,12 +54,16 @@ export default function Filters({ filters }: Props) {
     <ul class="flex flex-col gap-6 p-4">
       {filters
         .filter(isToggle)
-        .map((filter) => (
-          <li class="flex flex-col gap-4">
-            <Text variant="body">{filter.label}</Text>
-            <FilterValues {...filter} />
-          </li>
-        ))}
+        .map((filter) => {
+          if (filter.label === "Cor") {
+            return (
+              <li class="flex flex-col gap-4">
+                <Text class="bg-[#EEE] p-2 lg:bg-white">{filter.label}</Text>
+                <FilterValues {...filter} />
+              </li>
+            );
+          }
+        })}
     </ul>
   );
 }

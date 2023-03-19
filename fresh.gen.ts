@@ -461,6 +461,22 @@ const manifest: DecoManifest = {
                       "type": "string",
                       "const": "Arrow",
                     },
+                    {
+                      "type": "string",
+                      "const": "FacebookLogo",
+                    },
+                    {
+                      "type": "string",
+                      "const": "TwitterLogo",
+                    },
+                    {
+                      "type": "string",
+                      "const": "PinterestLogo",
+                    },
+                    {
+                      "type": "string",
+                      "const": "YoutubeLogo",
+                    },
                   ],
                   "title": "Icon",
                   "description": "Image src",
@@ -679,6 +695,22 @@ const manifest: DecoManifest = {
                               {
                                 "type": "string",
                                 "const": "Arrow",
+                              },
+                              {
+                                "type": "string",
+                                "const": "FacebookLogo",
+                              },
+                              {
+                                "type": "string",
+                                "const": "TwitterLogo",
+                              },
+                              {
+                                "type": "string",
+                                "const": "PinterestLogo",
+                              },
+                              {
+                                "type": "string",
+                                "const": "YoutubeLogo",
                               },
                             ],
                             "title": "Icon",
