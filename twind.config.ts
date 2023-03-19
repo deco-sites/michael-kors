@@ -45,6 +45,7 @@ const options: Omit<Options, "selfURL"> = {
         // cores que usamos
         "default-dark": "#000000",
         "light-grey": "#D1D1D1",
+        "lighter-grey": "#EEEEEE",
       },
       textColor: {
         "default": "#161616",

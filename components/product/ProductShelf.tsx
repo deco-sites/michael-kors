@@ -28,7 +28,7 @@ function ProductShelf({
   return (
     <Container
       id={id}
-      class="flex flex-col justify-center w-full mt-24 relative lg:overflow-x-hidden"
+      class="flex flex-col justify-center w-full mt-24 relative lg:overflow-x-hidden mb-32"
     >
       <h2 class="text-center  flex flex-row items-center  md:gap-2 p-2">
         <div class="w-full h-[1px] bg-[#AAACAE]" />

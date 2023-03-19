@@ -15,6 +15,7 @@ function CartItem({ index }: Props) {
   const item = cart.value!.items[index];
   const locale = cart.value?.clientPreferencesData.locale;
   const currencyCode = cart.value?.storePreferencesData.currencyCode;
+  console.log(item);
   const {
     imageUrl,
     skuName,
@@ -35,18 +36,13 @@ function CartItem({ index }: Props) {
         height={150}
         class="object-cover object-center"
       />
-      <div class="flex-grow">
-        <Text variant="body">
+      <div class="flex-grow flex-col">
+        <Text class="text-xs">
           {name}
         </Text>
-        <div class="flex items-center gap-2">
-          <Text class="line-through" tone="subdued" variant="list-price">
-            {formatPrice(listPrice / 100, currencyCode!, locale)}
-          </Text>
-          <Text tone="price" variant="caption">
-            {isGift
-              ? "Grátis"
-              : formatPrice(sellingPrice / 100, currencyCode!, locale)}
+        <div>
+          <Text class="text-xs">
+            Tamanho: Único
           </Text>
         </div>
         <div class="mt-6 max-w-min">
@@ -56,6 +52,17 @@ function CartItem({ index }: Props) {
             onChange={(quantity) =>
               updateItems({ orderItems: [{ index, quantity }] })}
           />
+        </div>
+
+        <div class="flex items-center gap-2">
+          <Text class="line-through" tone="subdued" variant="list-price">
+            {formatPrice(listPrice / 100, currencyCode!, locale)}
+          </Text>
+          <Text tone="price" variant="caption">
+            {isGift
+              ? "Grátis"
+              : formatPrice(sellingPrice / 100, currencyCode!, locale)}
+          </Text>
         </div>
       </div>
       <Button
