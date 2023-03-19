@@ -58,44 +58,32 @@ function Cart() {
       {/* Cart Footer */}
       <footer>
         {/* Subtotal */}
-        <div class="border-t-1 border-default py-4 flex flex-col gap-4">
-          {discounts?.value && (
-            <div class="flex justify-between items-center px-4">
-              <Text variant="caption">Descontos</Text>
-              <Text variant="caption">
-                {formatPrice(discounts.value / 100, currencyCode!, locale)}
-              </Text>
-            </div>
-          )}
-          <Coupon />
+        <div class="border-t-1 border-default  py-2 flex flex-col gap-4 text-right pr-5">
+          <Text class="text-[10px]">
+            SUBTOTAL: {formatPrice(
+              cart._v.items[0].priceDefinition.total / 100,
+              currencyCode!,
+              locale,
+            )}
+          </Text>
         </div>
-        {/* Total */}
-        {total?.value && (
-          <div class="border-t-1 border-default pt-4 flex flex-col justify-end items-end gap-2 mx-4">
-            <div class="flex justify-between items-center w-full">
-              <Text variant="body">Total</Text>
-              <Text variant="heading-3">
-                {formatPrice(total.value / 100, currencyCode!, locale)}
-              </Text>
-            </div>
-            <Text tone="subdued" variant="caption">
-              Taxas e fretes serão calculados no checkout
-            </Text>
-          </div>
-        )}
-        <div class="p-4">
+        <div class="p-4 pt-0 flex flex-col justify-center gap-2">
           <a
             class="inline-block w-full"
             target="_blank"
             href={`${CHECKOUT_URL}?orderFormId=${cart.value!.orderFormId}`}
           >
             <Button
-              class="w-full"
+              class="w-full rounded-none"
               disabled={loading.value || cart.value.items.length === 0}
             >
-              Finalizar Compra
+              FINALIZAR COMPRA
             </Button>
           </a>
+
+          <Button class="w-full rounded-none " variant="secondary">
+            CONTINUE COMPRANDO
+          </Button>
         </div>
       </footer>
     </>

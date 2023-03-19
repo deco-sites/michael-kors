@@ -92,14 +92,10 @@ function ProductCard({ product, preload }: Props) {
           </Text>
           <div class="flex flex-col">
             <Text
-              class="line-through text-sm"
+              class="text-[12px] text-default-dark "
               variant="list-price"
-              tone="subdued"
             >
               {formatPrice(listPrice, offers!.priceCurrency!)}
-            </Text>
-            <Text variant="caption" tone="price" class="text-sm">
-              {formatPrice(price, offers!.priceCurrency!)}
             </Text>
           </div>
         </div>

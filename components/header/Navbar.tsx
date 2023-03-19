@@ -21,12 +21,14 @@ function Navbar({ items, searchbar }: {
       >
         <HeaderButton variant="menu" />
 
-        <Icon
-          id="Logo"
-          width={155}
-          height={15}
-          class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
-        />
+        <a href="/">
+          <Icon
+            id="Logo"
+            width={155}
+            height={15}
+            class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          />
+        </a>
 
         <div class="flex">
           <HeaderButton variant="search" />

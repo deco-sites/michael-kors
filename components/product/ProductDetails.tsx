@@ -41,6 +41,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
   } = product;
   const { price, listPrice, seller, installments } = useOffer(offers);
   const [front, back] = images ?? [];
+
   return (
     <Container class="py-0 sm:py-10">
       <div class="flex flex-col gap-4 sm:flex-row sm:gap-40 lg:justify-center relative">
@@ -73,7 +74,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
               Michael Kors
             </Text>
             <h1>
-              <Text variant="heading-3">{name}</Text>
+              <Text variant="heading-3">{product.isVariantOf?.name}</Text>
             </h1>
             <div>
               <Text tone="subdued" class="text-xs">
@@ -85,14 +86,10 @@ function Details({ page }: { page: ProductDetailsPage }) {
           <div class="mt-4">
             <div class="flex flex-row gap-2 items-center">
               <Text
-                class="line-through"
-                tone="subdued"
+                class="text-[12px] text-default-dark "
                 variant="list-price"
               >
                 {formatPrice(listPrice, offers!.priceCurrency!)}
-              </Text>
-              <Text tone="price" variant="heading-3">
-                {formatPrice(price, offers!.priceCurrency!)}
               </Text>
             </div>
             <Text tone="subdued" variant="caption">
@@ -101,10 +98,10 @@ function Details({ page }: { page: ProductDetailsPage }) {
           </div>
           {/* Sku Selector */}
           <div class="mt-4 sm:mt-6 ">
-            <Text class="text-base">
+            <Text class="text-sm">
               COR
             </Text>
-            <div class="h-[75px]  w-[75px] border border-default-dark flex justify-center items-center flex-col gap-2.5">
+            <div class="h-[75px]  w-[75px]  flex justify-center items-center flex-col gap-2.5">
               <div class="h-[30px]  flex w-[30px] rounded-full bg-black" />
               <Text class="text-xs">
                 {formatPrice(listPrice, offers!.priceCurrency!)}
@@ -112,7 +109,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
             </div>
           </div>
           <div class="flex flex-col gap-2.5 mt-10">
-            <Text class="text-base">
+            <Text class="text-sm">
               QUANTIDADE
             </Text>
             <select class="w-[80px] h-[40px] border border-default-dark">
@@ -133,10 +130,10 @@ function Details({ page }: { page: ProductDetailsPage }) {
           </div>
 
           <div class="flex flex-col gap-2.5 mt-6 mb-12">
-            <Text class="text-base">
+            <Text class="text-sm">
               DESIGN
             </Text>
-            <Text class="text-base">
+            <Text class="text-sm">
               {description}
             </Text>
           </div>

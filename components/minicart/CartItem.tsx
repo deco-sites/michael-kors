@@ -15,7 +15,6 @@ function CartItem({ index }: Props) {
   const item = cart.value!.items[index];
   const locale = cart.value?.clientPreferencesData.locale;
   const currencyCode = cart.value?.storePreferencesData.currencyCode;
-  console.log(item);
   const {
     imageUrl,
     skuName,
@@ -28,24 +27,24 @@ function CartItem({ index }: Props) {
   const isGift = sellingPrice < 0.01;
 
   return (
-    <div class="flex flex-row justify-between items-start gap-4">
+    <div class="flex flex-row justify-between items-start gap-8 px-5 border-b-1 border-lighter-grey pb-4">
       <Image
         src={imageUrl}
         alt={skuName}
-        width={108}
-        height={150}
+        width={65}
+        height={97}
         class="object-cover object-center"
       />
-      <div class="flex-grow flex-col">
-        <Text class="text-xs">
+      <div class="flex-col">
+        <Text class="text-[10px] uppercase font-medium">
           {name}
         </Text>
         <div>
-          <Text class="text-xs">
+          <Text class="text-[10px] uppercase font-medium">
             Tamanho: Único
           </Text>
         </div>
-        <div class="mt-6 max-w-min">
+        <div class="max-w-min">
           <QuantitySelector
             disabled={loading.value || isGift}
             quantity={quantity}
@@ -54,25 +53,28 @@ function CartItem({ index }: Props) {
           />
         </div>
 
-        <div class="flex items-center gap-2">
-          <Text class="line-through" tone="subdued" variant="list-price">
-            {formatPrice(listPrice / 100, currencyCode!, locale)}
-          </Text>
-          <Text tone="price" variant="caption">
+        <div class="flex flex-row items-center  justify-between  mt-4">
+          <Text class="text-[10px] text-default-dark uppercase font-medium">
             {isGift
               ? "Grátis"
               : formatPrice(sellingPrice / 100, currencyCode!, locale)}
           </Text>
+          <div
+            onClick={() =>
+              updateItems({ orderItems: [{ index, quantity: 0 }] })}
+            class="pr-4"
+          >
+            <div class="flex flex-row gap-2 items-center">
+              <Text class="text-[10px] text-default-dark">
+                REMOVER
+              </Text>
+              <Text class="text-xs text-default-dark">
+                X
+              </Text>
+            </div>
+          </div>
         </div>
       </div>
-      <Button
-        onClick={() => updateItems({ orderItems: [{ index, quantity: 0 }] })}
-        disabled={loading.value || isGift}
-        loading={loading.value}
-        variant="icon"
-      >
-        <Icon id="Trash" width={20} height={20} />
-      </Button>
     </div>
   );
 }
