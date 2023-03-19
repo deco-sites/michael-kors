@@ -73,7 +73,7 @@ function Footer({ sections = [] }: Props) {
               {sections.map((section) => (
                 <li>
                   <div>
-                    <Text class="text-default-dark text-sm font-medium">
+                    <Text variant="heading-3" class="text-default-dark text-xs">
                       {section.label}
                     </Text>
 
