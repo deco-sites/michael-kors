@@ -88,7 +88,7 @@ function ProductCard({ product, preload }: Props) {
             MICHAEL KORS
           </Text>
           <Text class="text-xs">
-            Bolsa De Viagem
+            {product.isVariantOf?.name}
           </Text>
           <div class="flex flex-col">
             <Text
