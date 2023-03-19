@@ -18,7 +18,9 @@ function Conhecamais(
       {image && (
         <div
           class={`${
-            horizontal ? "max-w-[1440px]" : "max-w-[910px]"
+            horizontal
+              ? "max-w-[1440px] min-h-[467px] lg:min-h-[809px] "
+              : "max-w-[910px] "
           }  flex justify-center`}
         >
           <Image
