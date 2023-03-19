@@ -27,6 +27,8 @@ function Conhecamais(
             alt={alt}
             width={horizontal ? 831 : 375}
             height={horizontal ? 467 : 469}
+            preload={true}
+            loading={"eager"}
           />
         </div>
       )}
