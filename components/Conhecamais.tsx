@@ -1,6 +1,7 @@
 import Text from "$store/components/ui/Text.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import Image from "deco-sites/std/components/Image.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
 export interface Props {
   title: string;
   paragraph: string;
@@ -37,8 +38,17 @@ function Conhecamais(
           </Text>
           <Text class="text-sm lg:text-lg">{paragraph}</Text>
 
-          <a href={href}>
-            <Text class="text-xs font-bold">CLIQUE E CONHEÇA MAIS.</Text>
+          <a
+            href={href}
+            class="flex flex-row items-center justify-center gap-2"
+          >
+            <Text class="text-xs font-bold">CLIQUE E CONHEÇA MAIS</Text>
+            <Icon
+              id="Arrow"
+              width={16}
+              height={16}
+              strokeWidth={0.01}
+            />
           </a>
         </div>
       </div>
